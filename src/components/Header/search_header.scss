@@ -1,0 +1,48 @@
+.search-head{
+height:44px;
+display: flex;
+background-color: #fff;
+border-bottom: 1px solid #eee;
+    .left{
+        width:44px;
+        height:44px;
+        line-height:44px;
+        text-align: center;
+        img{
+            width:14px;
+            height:14px;
+            display: block;
+            padding:15px;
+        }
+    }
+    .center{
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .right{
+        width:44px;
+        height:44px;
+        line-height:44px;
+        .am-icon-md{
+            padding:11px;
+        }
+        
+    }
+    .right-btn{
+        width:auto;
+        .submit-btn{
+            line-height: 30px;
+            border:0;
+            height:30px;
+            margin:7px 10px;
+            margin-left:0;
+            border-radius:3px;
+            background-color:rgb(255, 91, 5);
+            color:#fff;
+        }
+    }
+}

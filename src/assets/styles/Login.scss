@@ -1,0 +1,65 @@
+.bg{
+    height: 40vh;
+    // background: skyblue;
+    background: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583584498222&di=9d9bafcaa659a45c2478061625b54df2&imgtype=0&src=http%3A%2F%2Fimg.itc.cn%2Ffocushome%2F4b%2Fb4%2F4bb4151fbcce9d1e588cfb5486076732.jpg_w660') no-repeat;
+    animation: left 5s infinite linear;
+    @keyframes left {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: -200px 0;
+      }
+    }
+    span{
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      color: #fff;
+    }
+  }
+  
+  .login{
+    height: 60vh;
+    padding: 20px 50px;
+    .registered{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .userName{
+      margin: 15px 0;
+    }
+    .password{
+  
+    }
+    .yzm{
+      display: flex;
+      justify-content: flex-end;
+      color: #005980;
+      margin-top: 20px;
+    }
+    .login_btn{
+      height: 40px;
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fe7300;
+      color: #fff;
+    }
+    .login_forget{
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #005980;
+    }
+  }
+  
+  .absolute{
+    position: absolute;
+    bottom: 100px;
+    // left: 7%;
+    width: 275px;
+  }

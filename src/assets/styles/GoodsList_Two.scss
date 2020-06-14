@@ -1,0 +1,32 @@
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    background: #efeff4;
+}
+.list_item {
+    flex: 1;
+    background: #fff;
+    padding: 10px;
+    border-bottom-width: 8px;
+    border-bottom-style: solid;
+    border-bottom-color: #eee;
+    .img_box {
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .list_item_content {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        height: 80px;
+        .title{
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+        }
+    }
+
+}

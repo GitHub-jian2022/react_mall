@@ -1,0 +1,209 @@
+.cart-page{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    .cart-tip{
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        min-height: 60px;
+        color:#555;
+    }
+    .edit{
+        padding-right:10px;
+        font-size:14px;
+    }
+    .am-navbar-right{
+        color: #3c3c33;
+    }
+    .cart-body{
+      height:100%;
+      flex: 1;
+      display: flex;
+      background-color:#fff;
+      overflow-y: auto;
+      .cart-main{
+          width:100%;
+          >.am-list-item{
+            border-bottom: 1px solid #eee;
+            .am-list-line::after{
+                background-color: transparent;
+            }
+          }
+          >.am-list-item.am-list-item-active{
+              background-color: transparent;
+          }
+          .cart-c-title{
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              >div{
+                  flex:1;
+              }
+              span{
+                  font-size:14px;
+                  margin-left:10px;
+              }
+              .next{
+                  width:14px;
+                  height:14px;
+                  display: inline-block;
+                  margin-left:10px;
+              }
+              i{
+                  font-style: inherit;
+                  font-size:14px;
+                  display: block;
+                  padding:0 10px;
+              }
+          }
+          .cart-c-body{
+              .am-list-item-active{
+                  background-color: transparent;
+              }
+              .am-list-line{
+                padding-right: 0px;
+              }
+              border-bottom: 1px solid #eee;
+              .am-list-content{
+                  position: relative;
+              }
+              .cart-c-item{
+                  overflow: hidden;
+                  position: relative;
+                  padding:10px 10px 10px 0;
+                  box-sizing: border-box;
+                  .cart-c-check{
+                      width:40px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      height:calc(100% - 20px);
+                      box-sizing: border-box;
+                      position: absolute;
+                  }
+              }
+              .cart-ci-left{
+                    position: absolute;
+                    top: 0;
+                    left: 40px;
+                    height: 100%;
+                    overflow: hidden;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    img{
+                        height:85px;
+                        width:85px;
+                        display: block;
+                        border:1px solid #eee;
+                    }
+            }
+            .cart-ci-right{
+                min-height:87px;
+                margin-left:135px;
+                margin-right:8px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+               
+                .r-title{
+                    font-size:15px;
+                    white-space:normal;
+                    font-weight:bold;
+                    overflow : hidden;
+                    max-height: 46px;
+                    span{
+                        overflow : hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        /*! autoprefixer: ignore next */
+                        -webkit-box-orient: vertical;
+                        white-space:inherit;
+                        -webkit-line-clamp: 2;
+                    }
+                }
+                .r-step{
+                    display: flex;
+                    justify-content: space-between;
+                    .r-price{
+                        color:#ff5b05;
+                        font-size:14px;
+                        line-height:30px;
+                        span{
+                            font-size:12px;
+                        }
+                    }
+                    .span-stepper{
+                        width:100px;
+                         .am-stepper-handler{
+                            line-height: 28px;
+                            font-size: 14px;
+                            width: 26px;
+                            height: 26px;
+                            display:flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                        .am-stepper-input{
+                            font-size:14px;
+                        }
+                    }
+                }
+            }
+          }
+      }
+    }
+    .cart-footer{
+        display: flex;
+        justify-content: space-between;
+        border-top:1px solid #eee;
+        background-color:rgba(255,255,255,.7);
+        height:50px;
+        &>div:nth-child(1){
+            width:50px;
+            text-align: center;
+            height:50px;
+            padding-top: 5px;
+            div{
+                font-size:12px;
+                color:#555;
+            }
+        }
+        .all-pirce{
+            flex:1;   
+            margin-right:10px;
+            display: flex;
+            align-items: center;
+            p{
+                margin:0;
+                padding:0;
+                font-weight: 700;
+                font-size:16px;
+                text-align: right;
+                width:100%;
+                span:nth-child(2){
+                    color: #ff5b05;
+                }
+            }
+        }
+        &>div:nth-child(3){
+            width: 110px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 16px;
+            font-weight:bold;
+            background-color: #d7d7d7;
+            color:#888;
+            span{
+                font-size: 10px;
+                font-weight:400;
+            }
+        }
+        div.active{
+            background-color: #ff5b05;
+            color:#fff;
+        }
+    }
+}
