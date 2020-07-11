@@ -72,7 +72,9 @@ class Cate extends Component {
                                       })}>
                                         {
                                           ktem.logo ?
-                                            <img src={`http://exotic.gzfenzu.com/${ktem.logo}`} alt="" />
+                                            <div className='img_box'>
+                                              <img src={ktem.logo} alt="" />
+                                            </div>
                                             : null
                                         }
                                         {

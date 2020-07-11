@@ -13,16 +13,16 @@ code {
     monospace;
 }
 
-.content_wrap_3 {
+.content_wrap_2 {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   overflow: hidden;
 }
 
 .clearfix:before,.clearfix:after { 
   content:"";
-  display:table;  /* 这句话可以出发BFC BFC可以清除浮动,BFC我们后面讲 */
+  display:table; 
 }
 .clearfix:after {
  clear:both;

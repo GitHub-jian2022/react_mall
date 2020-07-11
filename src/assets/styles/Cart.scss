@@ -188,7 +188,7 @@
                 }
             }
         }
-        &>div:nth-child(3){
+        .cart-footer-right{
             width: 110px;
             line-height: 50px;
             text-align: center;
@@ -202,7 +202,7 @@
             }
         }
         div.active{
-            background-color: #ff5b05;
+            background-color: #0259fa;
             color:#fff;
         }
     }

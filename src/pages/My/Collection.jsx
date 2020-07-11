@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { SearchHeader } from '../../components'
-import { Tabs, Checkbox } from 'antd-mobile';
+import { Tabs } from 'antd-mobile';
 import '../../assets/styles/Collection.scss';
-
-const CheckboxItem = Checkbox.CheckboxItem;
 
 const tabs = [
     { title: '按时间查看' },
@@ -55,17 +53,7 @@ const Tab1 = (props) => {
     const goodsItemClick = (id) => {
         // console.log('id: ', id);
     }
-    const onChange = (index1, index2) => {
-        list1 = list1.map((v, i) => {
-            if (i === index1) {
-                v.goodsList[index2].checked = !v.goodsList[index2].checked
-                return v
-            } else {
-                return v
-            }
-        })
-        console.log('list1: ', list1);
-    }
+    
     return (
         <div>
             {list1.map((item1, index1) => (

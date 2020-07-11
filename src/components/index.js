@@ -3,14 +3,18 @@ import Banner from './Banner'
 import SearchInput from './SearchInput'
 import Nav from './Nav'
 import Adverts from './Adverts'
-import MySearchBar from './MySearchBar'
+import AntdSearchBar from './AntdSearchBar'
+import FilterComponents from './FilterComponents'
 import GoodsList from './GoodsList'
-import GoodsList_Two from './GoodsList_Two'
+import GoodsListImg from './GoodsListImg'
+
+import OrderList from './Order/OrderList'
 
 import CartList from './Cart/CartList'
 import CartItem from './Cart/CartItem'
 
 import SearchHeader from './Header/SearchHeader'
+import ScrollToTop from './ScrollToTop '
 import Layout from './Layout'
 
 export {
@@ -18,12 +22,17 @@ export {
     SearchInput,
     Nav,
     Adverts,
-    MySearchBar,
+    AntdSearchBar,
+    FilterComponents,
     GoodsList,
-    GoodsList_Two,
+    GoodsListImg,
+
+    OrderList,
+    
     CartList,
     CartItem,
 
     SearchHeader,
+    ScrollToTop,
     Layout
 }

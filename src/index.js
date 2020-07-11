@@ -5,6 +5,9 @@ import App from './App';
 // 引入 react-redux  负责将store和组件连接起来
 import { Provider } from "react-redux";
 import store from "./store";
+
+import "lib-flexible"
+
 ReactDOM.render(
   <Provider store={store} >
     <App />

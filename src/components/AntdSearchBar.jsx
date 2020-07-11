@@ -7,15 +7,17 @@ import { connect } from "react-redux";
 import { changePath } from '../store/action/routerAction'
 import { clear } from '../store/action/searchAction'
 
+import '../assets/styles/AntdSearchBar.scss'
+
 function showToast() {
     Toast.info('请输入想要搜索的商品', 1);
 }
 
- class MySearchBar extends Component {
+class AntdSearchBar extends Component {
     constructor(props) {
         super(props)
         store.subscribe(() => {
-           
+
         })
     }
     state = {
@@ -24,12 +26,12 @@ function showToast() {
     componentDidMount() {
         //自动获取光标
         this.autoFocusInst.focus();
-        const  value  = store.getState().searchReducer.searchInput.keyword
+        const value = store.getState().searchReducer.searchInput.keyword
         this.setState({ value })
     }
     onSubmit = () => {
         const { value } = this.state
-        if(!value) {
+        if (!value) {
             showToast()
             return
         }
@@ -39,24 +41,26 @@ function showToast() {
     render() {
         const { value } = this.state
         return (
-            <div style={{ display: 'flex', alignItems: 'center',background: '#efeff4' }}>
-                <Icon type="left" onClick={() =>{
+            <div className="search-head" style={{ display: 'flex', alignItems: 'center', marginBottom: 10 }}>
+                <Icon type="left" size={'lg'} color='gray' onClick={() => {
                     const { path } = this.props.match
                     this.props.changePath(path)
                     this.props.history.go(-1)
                     this.props.clear()
                 }} />
-                <SearchBar
-                    value={value}
-                    placeholder="Search"
-                    ref={ref => this.autoFocusInst = ref}
-                    onSubmit={value => this.onSubmit()}
-                    onChange={value => {
-                        this.setState({ value })
-                    }}
-                    onCancel={() => {}}
-                    style={{ flex: 1 }}
-                />
+                <div className="center">
+                    <SearchBar
+                        value={value}
+                        placeholder="Search"
+                        ref={ref => this.autoFocusInst = ref}
+                        onSubmit={this.onSubmit}
+                        onChange={value => {
+                            this.setState({ value })
+                        }}
+                        onCancel={() => this.props.history.go(-1)}
+                        style={{ flex: 1 }}
+                    />
+                </div>
             </div>
         )
     }
@@ -73,4 +77,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default withRouter(connect(null,mapDispatchToProps)(MySearchBar))
+export default withRouter(connect(null, mapDispatchToProps)(AntdSearchBar))

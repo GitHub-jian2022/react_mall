@@ -24,7 +24,7 @@ class CratItem extends Component{
                 {
                 text: '删除',
                 onPress: () =>{
-                    console.log('delete')
+                    this.props.deleteById(item.id)
                     return false;
                 },
                 style: { backgroundColor: '#F4333C', color: 'white' },
@@ -35,6 +35,7 @@ class CratItem extends Component{
                 console.log('global close')
                 return false;
             }}
+            autoClose
         >
             <div className="cart-c-item" >
                 <div className="cart-c-check">

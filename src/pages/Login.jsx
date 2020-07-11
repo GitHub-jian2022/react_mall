@@ -1,81 +1,52 @@
 import React, { Component } from 'react'
 import { InputItem } from 'antd-mobile';
 import { withRouter } from 'react-router-dom'
-import axios from "../utils/request"
 import "../assets/styles/Login.scss"
 
-
- class Login extends Component {
-  state = {
-    username: '',
-    password: '',
-    focus: false
-  }
-  componentDidMount(){
-    console.log(this.props);
-  }
-
-  componentWillUnmount(){
-    this.timer = -1;
-  }
-
-  getUsername = (username) => {
-    this.setState({
-      username
-    })
-  }
-
-  getPassword = (password) => {
-    this.setState({
-      password
-    })
-  }
-
-  login = async () => {
-    const { username, password } = this.state;  
-    let res = await axios.post('/user/login',{
-      body: {
-        username,
-        password
+import { connect } from "react-redux";
+import { login } from '../store/action/usersAction'
+import store from '../store'
+class Login extends Component {
+  constructor(props){
+    super(props);
+    store.subscribe(() => {
+      // const { token, user } = state.usersReducer
+      const { token } = store.getState().usersReducer
+      // console.log('token',token)
+      if(token) {
+        this.props.history.push('/')
       }
     })
-    console.log(res);
-    if(res.status === 200){
-      sessionStorage.setItem("token",res.body.token);
-      const { pathname } = this.props.location.state.from
-      this.props.history.push(pathname)
+    this.state = {
+      phone: '',
+      password: ''
     }
   }
 
-  timer = -1;
-  onFocus = (bl) => {
-    // this.timer=setTimeout(() => {
-    //   this.setState({
-    //     focus: bl
-    //   })
-    // }, 100);
+  login = async () => {
+    const { phone, password } = this.state;
+    this.props.login({ phone, password })
   }
 
   render() {
     return (
-      <div style={{position: 'relative',height: '100vh'}}>
+      <div style={{ position: 'relative', height: '100vh' }}>
         <div className='bg'>
-          <span onClick={()=>this.props.history.push('/my')}>X</span>
+          <span onClick={() => this.props.history.go(-1)}>X</span>
         </div>
-        <div className={this.state.focus ? 'login absolute' : 'login'}>
+        <div className='login'>
           <div className='registered'>
             <h3>登录</h3>
-            <span style={{color: '#005980'}} onClick={()=>{
+            {/* <span style={{color: '#005980'}} onClick={()=>{
               this.props.history.push('/register')
-            }}>点此注册</span>
+            }}>点此注册</span> */}
           </div>
-          <div className='userName'>
+
+          <div className='phone'>
             <InputItem
               placeholder="账号"
               clear
-              onChange={this.getUsername}
-              onFocus={this.onFocus.bind(this,true)}
-              onBlur={this.onFocus.bind(this,false)}
+              onChange={phone => this.setState({ phone })}
             ></InputItem>
           </div>
           <div className='password'>
@@ -83,9 +54,7 @@ import "../assets/styles/Login.scss"
               type='password'
               placeholder="请输入密码"
               clear
-              onChange={this.getPassword}
-              onFocus={this.onFocus.bind(this,true)}
-              onBlur={this.onFocus.bind(this,false)}
+              onChange={password => this.setState({ password })}
             ></InputItem>
           </div>
           {/* <div className='yzm'>
@@ -102,4 +71,12 @@ import "../assets/styles/Login.scss"
     )
   }
 }
-export  default withRouter(Login)
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    login: (value) => {
+      dispatch(login(value))
+    }
+  }
+}
+export default withRouter(connect(null, mapDispatchToProps)(Login))

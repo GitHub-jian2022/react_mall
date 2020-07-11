@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { SearchHeader } from '../../components'
-import { List } from 'antd-mobile';
-
+import { List, Button, Modal } from 'antd-mobile';
+const alert = Modal.alert
 const Item = List.Item;
 
 export default class SetUp extends Component {
@@ -13,6 +13,13 @@ export default class SetUp extends Component {
             { thumb: 'https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png', title: '通用' },
             { thumb: 'https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png', title: '隐私' }
         ]
+    }
+    logOut = () => {
+        alert('退出登录', '', [
+            { text: '取消', onPress: () => console.log('cancel') },
+            { text: '确定', onPress: () => this.props.history.push('/login') },
+        ])
+        
     }
     render() {
         return (
@@ -29,6 +36,9 @@ export default class SetUp extends Component {
                         >{item.title}</Item>
                     ))}
                 </List>
+                <div style={{ marginTop: 20 }}>
+                    <Button type="warning" onClick={this.logOut}>退出登录</Button>
+                </div>
             </div>
         )
     }

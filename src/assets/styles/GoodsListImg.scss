@@ -2,14 +2,10 @@
     display: flex;
     flex-wrap: wrap;
     background: #efeff4;
+    justify-content: space-between;
 }
 .list_item {
-    flex: 1;
     background: #fff;
-    padding: 10px;
-    border-bottom-width: 8px;
-    border-bottom-style: solid;
-    border-bottom-color: #eee;
     .img_box {
         height: 150px;
         display: flex;
@@ -20,12 +16,21 @@
         display: flex;
         justify-content: space-between;
         flex-direction: column;
-        height: 80px;
+        padding: 10px 0;
         .title{
             display: -webkit-box;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 2;
             overflow: hidden;
+            font-size: 16px;
+        }
+        .desc {
+            margin: 10px 0;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            overflow: hidden;
+            color: '#888'
         }
     }
 

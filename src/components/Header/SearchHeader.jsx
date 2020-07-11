@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 //引入antd-mobile组件
-import {SearchBar,Icon,Popover} from 'antd-mobile'
+import { Icon,Popover } from 'antd-mobile'
 //支持路由跳转
 import {withRouter} from 'react-router-dom'
 
@@ -43,16 +43,6 @@ class SearchHeader extends Component {
         this.setState({
             visible,
         });
-    }
-    //选中搜索框时跳转到搜索页面，并带参数
-    gotoSearchPage(){
-        sessionStorage.setItem('__search_prev_path__',this.props.location.pathname)
-        this.props.history.push({
-            pathname:'/search',
-            query: {
-                s:this.props.value
-            }
-        })
     }
 
     render() {

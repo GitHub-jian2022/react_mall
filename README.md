@@ -1,3 +1,47 @@
+#  React手机端商城
+
+##  项目介绍
+
+#### React开发的手机端商城，使用antd-mobile UI框架
+
+#### 后台模拟用的是koa2，只模拟了取数据，不能修改数据
+
+####  项目预览
+
+![1594480458335](E:\study\react\react_mall\mallmobile\assets\1594480458335.png)
+
+
+
+![1594480494005](E:\study\react\react_mall\mallmobile\assets\1594480494005.png)
+
+
+
+![1594480528658](E:\study\react\react_mall\mallmobile\assets\1594480528658.png)
+
+
+
+![1594480562560](E:\study\react\react_mall\mallmobile\assets\1594480562560.png)
+
+![1594480576800](E:\study\react\react_mall\mallmobile\assets\1594480576800.png)
+
+
+
+![1594480602313](E:\study\react\react_mall\mallmobile\assets\1594480602313.png)
+
+![1594480637771](E:\study\react\react_mall\mallmobile\assets\1594480637771.png)
+
+![1594480654590](E:\study\react\react_mall\mallmobile\assets\1594480654590.png)
+
+![1594480722489](E:\study\react\react_mall\mallmobile\assets\1594480722489.png)
+
+![1594480740263](E:\study\react\react_mall\mallmobile\assets\1594480740263.png)
+
+![1594480756272](E:\study\react\react_mall\mallmobile\assets\1594480756272.png)
+
+
+
+![1594480870206](E:\study\react\react_mall\mallmobile\assets\1594480870206.png)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-import { Carousel, WingBlank } from 'antd-mobile';
+import { Carousel } from 'antd-mobile';
 
 export default class Banner extends Component {
     state = {
-        data: ['1', '2', '3'],
-        banners: [],
         imgHeight: 176,
       }
       componentDidMount() {
@@ -13,21 +11,21 @@ export default class Banner extends Component {
       render() {
         const { banners } = this.props
         return (
-          <WingBlank>
             <Carousel
               autoplay={true}
               infinite
             >
-              {banners.map(val => (
+              {banners.map((item,i) => (
                 <a
-                  key={val}
-                  href=" http://47.100.138.242:8080/#/login"
+                  key={i}
+                  href="#"
                   style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
                 >
                   <img
-                    src={val}
+                    src={item.src}
                     alt=""
                     style={{ width: '100%', verticalAlign: 'top' }}
+                    onClick={() => this.props.onClickBanner(i)}
                     onLoad={() => {
                       // fire window resize event to change height
                       window.dispatchEvent(new Event('resize'));
@@ -37,7 +35,6 @@ export default class Banner extends Component {
                 </a>
               ))}
             </Carousel>
-          </WingBlank>
         );
       }
 }

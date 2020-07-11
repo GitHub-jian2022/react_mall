@@ -1,43 +1,64 @@
 import React, { Component } from 'react'
-import { MySearchBar, GoodsList_Two } from '../components/index'
+import { AntdSearchBar, GoodsListImg, ScrollToTop } from '../components/index'
 
 import { connect } from "react-redux";
 import { searchByKeyWord } from '../store/action/searchAction'
+import { getGoodsList } from '../store/action/goodsAction'
 
 class ListPage extends Component {
-    goodsItemClick = (id) => {
-        this.props.history.push('/goodsDetail/' + id)
-    }
-    onSubmit = (value) => {
-        //更新store中的state值
-        this.props.searchByKeyWord(value)
-    }
-    render() {
-        return (
-            <div>
-                <div>
-                    <MySearchBar onSubmit={this.onSubmit} />
-                </div>
-                {/* <WhiteSpace /> */}
 
-                {/* 筛选器 */}
+  async  componentDidMount() {
+    const { keyword } = this.props.match.params
+    await this.props.getGoodsList(keyword)
+  }
+  goodsItemClick = (id) => {
+    this.props.history.push('/goodsDetail/' + id)
+  }
+  onSubmit = (value) => {
+    //更新store中的state值
+    this.props.searchByKeyWord(value)
+  }
+  
+  render() {
+    const goodsList = this.props.goods
+    return (
+      <div id='searchpage'>
+        <div>
+          <AntdSearchBar onSubmit={this.onSubmit} />
+        </div>
 
-                {/* <WhiteSpace /> */}
+        {/* 筛选器 */}
 
-                {/* 列表 */}
-                <GoodsList_Two goodsItemClick={this.goodsItemClick} />
+        {/* 列表 */}
+        {
+          goodsList.length > 0 ?
+            <GoodsListImg
+              goodsItemClick={this.goodsItemClick}
+              goodsList={goodsList}
+            />
+            : <div style={{ padding: 20, fontSize: 18, textAlign: 'center', color: '#888' }}>
+              没有搜索数据
             </div>
-        )
-    }
+        }
+        <ScrollToTop />
+      </div>
+    )
+  }
 }
 
+const mapStateToProps = (state) => ({
+  goods: state.goodsReducer.goods
+})
 const mapDispatchToProps = (dispatch) => {
-    return {
-        searchByKeyWord: (value) => {
-            dispatch(searchByKeyWord(value));
-        }
+  return {
+    searchByKeyWord: (value) => {
+      dispatch(searchByKeyWord(value));
+    },
+    getGoodsList: (search) => {
+      dispatch(getGoodsList(search))
     }
+  }
 }
 
 // 用 connect 将store中的数据通过props的方式传递到App上
-export default connect(null, mapDispatchToProps)(ListPage)
+export default connect(mapStateToProps, mapDispatchToProps)(ListPage)

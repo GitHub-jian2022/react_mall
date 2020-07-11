@@ -3,7 +3,6 @@ import nav_img1 from '../assets/images/nav-1.png'
 import nav_img2 from '../assets/images/nav-2.png'
 import nav_img3 from '../assets/images/nav-3.png'
 import nav_img4 from '../assets/images/nav-4.png'
-import { WingBlank } from 'antd-mobile';
 
 import '../assets/styles/Nav.scss'
 
@@ -34,7 +33,6 @@ export default class Nav extends Component {
     }
     render() {
         return (
-            <WingBlank>
                 <div className='Nav'>
                     {this.state.Navs.map((item, index) => (
                         <div key={index} className='Nav_item' onClick={this.onChangeNav.bind(this,index)}>
@@ -48,7 +46,6 @@ export default class Nav extends Component {
 
                     </div>
                 </div>
-            </WingBlank>
         )
     }
 }
