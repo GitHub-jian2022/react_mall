@@ -2,7 +2,8 @@
 import Axios from "axios"
 import REACT_APP_API_URL from "./urls";
 import { Toast } from 'antd-mobile'
-const token = sessionStorage.getItem("token");
+const token = localStorage.getItem("token");
+
 //1.添加通用前缀
 const axios = Axios.create({
     baseURL: REACT_APP_API_URL,

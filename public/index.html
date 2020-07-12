@@ -1,56 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
 
-<head>
-  <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Web site created using create-react-app" />
-  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="stylesheet" type="text/css" href="./assets/iconfont/iconfont.css">
 
-  <link rel="stylesheet" type="text/css" href="./assets/iconfont/iconfont.css">
-
-  <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
-
-  <script>
-    !(function (win, doc) {
-      function setFontSize() {
-        var baseFontSize = 100;
-        var baseWidth = 320;
-        var clientWidth = document.documentElement.clientWidth || window.innerWidth;
-        var innerWidth = Math.max(Math.min(clientWidth, 480), 320);
-        var rem = 100;
-        if (innerWidth > 362 && innerWidth <= 375) {
-          rem = Math.floor(innerWidth / baseWidth * baseFontSize * 0.9);
-        }
-        if (innerWidth > 375) {
-          rem = Math.floor(innerWidth / baseWidth * baseFontSize * 0.84);
-        }
-        window.__baseREM = rem;
-        document.querySelector('html').style.fontSize = rem + 'px';
-      }
-      var evt = 'onorientationchange' in win ? 'orientationchange' : 'resize';
-      var timer = null;
-      win.addEventListener(evt, function () {
-        clearTimeout(timer);
-        timer = setTimeout(setFontSize, 300);
-      }, false);
-      win.addEventListener("pageshow", function (e) {
-        if (e.persisted) {
-          clearTimeout(timer);
-          timer = setTimeout(setFontSize, 300);
-        }
-      }, false);
-      setFontSize();
-    }(window, document));
-  </script>
-  <!--
+    <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-  <!--
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -59,13 +27,12 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-  <title>React App</title>
-</head>
-
-<body>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div id="root"></div>
-  <!--
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
@@ -75,6 +42,5 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-</body>
-
+  </body>
 </html>

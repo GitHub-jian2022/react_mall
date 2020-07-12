@@ -33,6 +33,14 @@ class Order extends Component {
     //获取订单数据
     await this.props.getOrderList(0)
   }
+
+  componentWillUnmount() {
+    // 卸载异步操作设置状态
+    this.setState = (state, callback) => {
+      return;
+    }
+  }
+
   onChange = (tab) => {
     this.setState({ text: tab.title })
   }
@@ -48,7 +56,7 @@ class Order extends Component {
           onTabClick={(tab, index) => { console.log('onTabClick', tab); }}
         >
           {
-            tabs.map((item,index) => (
+            tabs.map((item, index) => (
               <OrderList order_list={order_list} key={index} />
             ))
           }
@@ -70,4 +78,4 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(Order)
+export default connect(mapStateToProps, mapDispatchToProps)(Order)

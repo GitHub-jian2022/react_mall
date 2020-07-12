@@ -10,7 +10,7 @@ export const login = ({phone,password}) => async(dispatch)=>{
         data: res.data
     }
     dispatch(action)
-    localStorage.setItem('token',res.data)
+    localStorage.setItem('token',JSON.stringify(res.data))
     dispatch(getUserInfo(res.data))
 }
 

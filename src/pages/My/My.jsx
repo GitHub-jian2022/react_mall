@@ -58,7 +58,7 @@ class My extends Component {
   }
 
   componentDidMount() {
-   const user = JSON.parse(localStorage.getItem('user'))
+   const user = JSON.parse(localStorage.getItem('user')) || {}
    this.setState({  user }) 
   }
   renderNavs = () => {
@@ -112,7 +112,7 @@ class My extends Component {
             <div className='top_l'>
               <img src={user.avatar_url || "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=480783060,2515065005&fm=15&gp=0.jpg"} alt="" />
               <div className='userInfo'>
-                <div className='username'>{user.username || 'JACK'}</div>
+                <div className='username'>{user.username || '请登录'}</div>
                 <div className='userNav'>
                   <div style={{ marginRight: 15 }}>{user.gender || ''}</div>
                   <div></div>

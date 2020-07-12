@@ -17,7 +17,11 @@ export default class SetUp extends Component {
     logOut = () => {
         alert('退出登录', '', [
             { text: '取消', onPress: () => console.log('cancel') },
-            { text: '确定', onPress: () => this.props.history.push('/login') },
+            { text: '确定', onPress: () => {
+                // 清除token
+                localStorage.removeItem('token')
+                this.props.history.push('/login')
+            } },
         ])
         
     }
