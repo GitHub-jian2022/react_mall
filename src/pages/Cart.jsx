@@ -36,7 +36,7 @@ class Cart extends Component {
   }
 
   componentDidMount() {
-    this.getCartList()
+   this.state.token && this.getCartList()
   }
   //获取购物车列表
   async getCartList() {
