@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Carousel } from 'antd-mobile';
+import { REACT_APP_STATIC_URL } from '../utils/urls'
 
 export default class Banner extends Component {
     state = {
@@ -22,7 +23,7 @@ export default class Banner extends Component {
                   style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
                 >
                   <img
-                    src={item.src}
+                    src={REACT_APP_STATIC_URL + item.src}
                     alt=""
                     style={{ width: '100%', verticalAlign: 'top' }}
                     onClick={() => this.props.onClickBanner(i)}

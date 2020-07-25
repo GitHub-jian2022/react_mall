@@ -7,7 +7,6 @@ export default class OrderList extends Component {
   }
   render() {
     const { order_list } = this.props
-    console.log('order_list: ', order_list);
     return (
       <div className="cart-main" style={{ backgroundColor: '#eee' }}>
         {/* 遍历订单商品列表 */}

@@ -6,6 +6,7 @@ import "../assets/styles/Login.scss"
 import { connect } from "react-redux";
 import { login } from '../store/action/usersAction'
 import store from '../store'
+
 class Login extends Component {
   constructor(props){
     super(props);

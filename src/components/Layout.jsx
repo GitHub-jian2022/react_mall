@@ -35,9 +35,7 @@ class Index extends Component {
                     <TabBar.Item
                         icon={<i className="iconfont">&#xe612;</i>
                         }
-                        selectedIcon={
-                            <i className="iconfont">&#xe600;</i>
-                        }
+                        selectedIcon={<i className="iconfont">&#xe600;</i>}
                         title="分类"
                         key="cate"
                         selected={this.props.match.url === '/cate'}
@@ -51,9 +49,7 @@ class Index extends Component {
                         icon={<i className="iconfont">&#xe748;
                         </i>
                         }
-                        selectedIcon={
-                            <i className="iconfont">&#xe678;</i>
-                        }
+                        selectedIcon={<i className="iconfont">&#xe678;</i>}
                         title="购物车"
                         key="cart"
                         selected={this.props.match.url === '/cart'}

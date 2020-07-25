@@ -5,7 +5,9 @@ import Nav from './Nav'
 import Adverts from './Adverts'
 import AntdSearchBar from './AntdSearchBar'
 import FilterComponents from './FilterComponents'
-import GoodsList from './GoodsList'
+
+import GoodsList from './Goods/GoodsList'
+import GoodsListItem from './Goods/GoodsListItem'
 import GoodsListImg from './GoodsListImg'
 
 import OrderList from './Order/OrderList'
@@ -24,7 +26,9 @@ export {
     Adverts,
     AntdSearchBar,
     FilterComponents,
+    
     GoodsList,
+    GoodsListItem,
     GoodsListImg,
 
     OrderList,

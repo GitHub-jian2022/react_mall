@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { SearchHeader } from '../../components'
 import { List, Button, Modal } from 'antd-mobile';
+import { Cookie } from '../../utils/storage'
+
 const alert = Modal.alert
 const Item = List.Item;
 
@@ -19,7 +21,7 @@ export default class SetUp extends Component {
             { text: '取消', onPress: () => console.log('cancel') },
             { text: '确定', onPress: () => {
                 // 清除token
-                localStorage.removeItem('token')
+                Cookie.removeItem('token')
                 this.props.history.push('/login')
             } },
         ])

@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import { REACT_APP_STATIC_URL } from '../utils/urls'
 
 export default function Adverts(props) {
-    const [imgHeight,setImgHeight] = useState(176)
+    const [imgHeight,setImgHeight] = useState(200)
     return (
       <div>
         {
@@ -12,7 +13,7 @@ export default function Adverts(props) {
             style={{ display: 'inline-block', width: '100%', height: imgHeight, marginBottom: 10 }}
           >
             <img
-              src={item.img_url}
+              src={REACT_APP_STATIC_URL + item.url}
               alt="暂无图片"
               style={{ width: '100%', verticalAlign: 'top' }}
               onLoad={() => {

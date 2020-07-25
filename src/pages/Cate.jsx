@@ -5,7 +5,7 @@ import classnames from 'classnames'
 
 
 import { connect } from 'react-redux'
-import { loadCate } from '../store/action/loadAction'
+import { getCate } from '../store/action/cateAction'
 
 import '../assets/styles/Cate.scss'
 
@@ -18,7 +18,7 @@ class Cate extends Component {
     }
   }
   componentDidMount() {
-    this.props.loadCate()
+    this.props.getCate()
 
   }
   render() {
@@ -107,15 +107,15 @@ class Cate extends Component {
 }
 
 export default connect(
-  ({ loadReducer }) => {
+  ({ cateReducer }) => {
     return {
-      cates: loadReducer.cates
+      cates: cateReducer.cates
     }
   },
   (dispatch) => {
     return {
-      loadCate: () => {
-        dispatch(loadCate())
+      getCate: () => {
+        dispatch(getCate())
       }
     }
   }

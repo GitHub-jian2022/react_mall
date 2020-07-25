@@ -1,11 +1,10 @@
 import {GETGOODSLIST} from '../actionType/goodsType'
-import axios from '../../utils/request'
+import { Api, axios } from '../../api/api'
 
-export const getGoodsList = (search) => async(dispatch)=>{
-    let params={
-        search
-    }
-    const res = await axios.get('/goods/list',{params})
-    const { data } = res.data
-    dispatch({type:GETGOODSLIST,goods: data})
+export const getGoodsList = (params) => async(dispatch)=>{
+    
+    const res = await axios.get(Api.getGoodsList,{
+        params
+    })
+    dispatch({type:GETGOODSLIST,goods: res.data})
 }

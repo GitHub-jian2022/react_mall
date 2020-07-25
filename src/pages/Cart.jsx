@@ -6,7 +6,8 @@ import { Checkbox, NavBar, Button } from 'antd-mobile'
 import { CartList } from '../components/index'
 import '../assets/styles/Cart.scss'
 import classnames from 'classnames'
-import axios from '../utils/request'
+import { Api,axios } from '../api/api'
+import { Cookie } from '../utils/storage'
 
 // 顶部导航
 function TextHeader(props) {
@@ -25,7 +26,7 @@ class Cart extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      token: localStorage.getItem('token'),
+      token: Cookie.getItem('token'),
       deleteAll: false,
       checkedNum: 0,
       allPrice: 0,
@@ -39,7 +40,7 @@ class Cart extends Component {
   }
   //获取购物车列表
   async getCartList() {
-    let { data } = await axios.get('/alliance/cartList').then(res => res);
+    let { data } = await axios.get(Api.getCartList).then(res => res);
     this.setState({
       data: data,
       checkedNum: 0,

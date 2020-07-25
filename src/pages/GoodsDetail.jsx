@@ -3,10 +3,9 @@ import { SearchHeader, Banner } from '../components'
 import { Stepper, Toast } from 'antd-mobile'
 import { PhotoSlider } from 'react-photo-view';
 import 'react-photo-view/dist/index.css';
-
 import '../assets/styles/goodsdetail.scss'
-
-import axios from '../utils/request'
+import { REACT_APP_STATIC_URL } from '../utils/urls'
+import { Api, axios } from '../api/api'
 
 
 export default class Detail extends Component {
@@ -31,7 +30,7 @@ export default class Detail extends Component {
   }
   //获取商品信息
   getGoodsInfo = async () => {
-    let res = await axios.get('/alliance/goodInfo').then(res => res);
+    let res = await axios.get(Api.getGoodInfo)
     let data = res.data
     console.log('data', data)
     this.setState({
@@ -93,7 +92,7 @@ export default class Detail extends Component {
       <div className="goods-page">
         {
           data && <PhotoSlider
-          images={data.imgs_url.map(item => ({ src: item.src }))}
+          images={data.imgs_url.map(item => ({ src: REACT_APP_STATIC_URL + item.src }))}
           visible={this.state.visible}
           onClose={() => this.setState({ visible: false })
           }

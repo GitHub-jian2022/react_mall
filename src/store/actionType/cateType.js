@@ -1,0 +1,1 @@
+export const GET_CATE = 'GET_CATE'

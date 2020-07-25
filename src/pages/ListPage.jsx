@@ -6,10 +6,18 @@ import { searchByKeyWord } from '../store/action/searchAction'
 import { getGoodsList } from '../store/action/goodsAction'
 
 class ListPage extends Component {
+  state = {
+
+  }
+
+  Qparams = {
+    page: 1,
+    limit: 10
+  }
 
   async  componentDidMount() {
     const { keyword } = this.props.match.params
-    await this.props.getGoodsList(keyword)
+    this.props.getGoodsList(this.Qparams)
   }
   goodsItemClick = (id) => {
     this.props.history.push('/goodsDetail/' + id)
