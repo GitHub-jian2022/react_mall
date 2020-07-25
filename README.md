@@ -1,3 +1,23 @@
+### 技术栈
+
+#### react、react-router、react-redux、axios
+
+### 组件库
+
+#### antd-mobile
+
+### 启动项目
+
+```
+cd react_mall
+
+npm install
+
+npm start
+```
+
+
+
 后台地址：
 https://github.com/GitHub-jian2022/malladmin
 
