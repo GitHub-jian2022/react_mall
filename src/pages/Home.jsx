@@ -88,7 +88,7 @@ class Home extends Component {
     //clientHeight 外组件的最大高度
     //scrollHeight 这里列表的最大高度
     //scrollTop这里滚动的距离
-    console.log(scrollHeight, clientHeight, scrollTop)
+    // console.log(scrollHeight, clientHeight, scrollTop)
     //初始化不请求
     if (scrollHeight === 0 && clientHeight === 0 && scrollTop === 0) return
     //下拉不再请求

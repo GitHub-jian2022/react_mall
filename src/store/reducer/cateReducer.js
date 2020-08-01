@@ -7,7 +7,7 @@ export default (state=initState,action)=>{
         case GET_CATE:
             return {
                 ...state,
-                cates:action.cates
+                cates:action.data
             }
         default:
             return state

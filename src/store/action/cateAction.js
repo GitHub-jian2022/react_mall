@@ -6,7 +6,7 @@ export const getCate = () => async (dispatch) => {
     // console.log('data: ', data);
     const action = {
         type: GET_CATE,
-        cates:data
+        data
     }
     dispatch(action)
 }

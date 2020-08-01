@@ -5,7 +5,7 @@ import { Cookie } from '../../utils/storage'
 
 export const login = ({phone,password}) => async(dispatch)=>{
     const res = await axios.post(Api.login,{phone,password})
-    console.log('res',res)
+    // console.log('res',res)
     const action = {
         type: LOGIN,
         data: res.data

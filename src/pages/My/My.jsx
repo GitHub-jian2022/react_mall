@@ -1,12 +1,11 @@
 import React, { Component, Fragment } from 'react'
 import { withRouter } from 'react-router-dom'
-import { Badge, Icon } from 'antd-mobile';
+import { Badge, Icon, Toast } from 'antd-mobile';
 
 import '../../assets/styles/My.scss'
 
 class My extends Component {
   state = {
-    token: localStorage.getItem("token") || '',
     messageCount: 1,
     navs: [
       {
@@ -48,7 +47,7 @@ class My extends Component {
         >&#xe61a;</i>
       },
       {
-        pathname: '/',
+        pathname: '/my/aftersale',
         text: '退款/售后',
         icon: <i className="iconfont" style={{ color: '#f00', fontSize: 28 }}
         >&#xe61b;</i>
@@ -58,8 +57,8 @@ class My extends Component {
   }
 
   componentDidMount() {
-   const user = JSON.parse(localStorage.getItem('user')) || {}
-   this.setState({  user }) 
+    const user = JSON.parse(localStorage.getItem('user')) || {}
+    this.setState({ user })
   }
   renderNavs = () => {
     return (
@@ -67,6 +66,10 @@ class My extends Component {
         {this.state.navs.map((item, index) => (
           <div className='top_nav-item' key={index}
             onClick={() => {
+              if (item.path !== '/my/collection') {
+                Toast.info('此功能暂未开通', 1)
+                return
+              }
               this.props.history.push(item.path)
             }}
           >
@@ -84,9 +87,9 @@ class My extends Component {
         this.state.tools.map((item, index) => (
           <div className='tools_item'
             key={index}
-            onClick={this.toolsItemClick.bind(this,{
+            onClick={this.toolsItemClick.bind(this, {
               pathname: item.pathname,
-              initialPage: index+1,
+              initialPage: index + 1,
               text: item.text
             })}>
             {item.icon}
@@ -97,6 +100,10 @@ class My extends Component {
     </div>
   }
   toolsItemClick = (item) => {
+    if (item.pathname === '/my/aftersale') {
+      Toast.info('此功能暂未开通', 1)
+      return
+    }
     this.props.history.push({
       pathname: item.pathname,
       initialPage: item.initialPage,
@@ -104,7 +111,7 @@ class My extends Component {
     })
   }
   render() {
-    const { messageCount,user } = this.state
+    const { messageCount, user } = this.state
     return (
       <Fragment>
         <div className='top'>
@@ -130,10 +137,16 @@ class My extends Component {
                 messageCount > 0 ?
                   <Badge text={messageCount} overflowCount={99} >
                     <i className="iconfont" style={{ color: '#fff', fontSize: 20, fontWeight: 'bold' }}
-                      onClick={() => console.log('message')}
+                      onClick={() => {
+                        Toast.info('此功能暂未开通', 1)
+                        console.log('message')
+                      }}
                     >&#xfe63;</i>
                   </Badge> : <i className="iconfont" style={{ color: '#fff', fontSize: 20, fontWeight: 'bold' }}
-                    onClick={() => console.log('message')}
+                    onClick={() => {
+                      Toast.info('此功能暂未开通', 1)
+                      console.log('message')
+                    }}
                   >&#xfe63;</i>
               }
 
@@ -145,7 +158,7 @@ class My extends Component {
           <div className='title' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <h3>我的订单</h3>
             <div style={{ display: 'flex', alignItems: 'center' }}
-              onClick={this.toolsItemClick.bind(this,{
+              onClick={this.toolsItemClick.bind(this, {
                 pathname: '/my/order',
                 initialPage: 0,
                 text: '全部'
