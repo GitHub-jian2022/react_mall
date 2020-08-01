@@ -26,7 +26,7 @@ class Cart extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      token: Cookie.getItem('token'),
+      token: Cookie.getItem('token') || '',
       deleteAll: false,
       checkedNum: 0,
       allPrice: 0,
@@ -40,13 +40,15 @@ class Cart extends Component {
   }
   //获取购物车列表
   async getCartList() {
-    let { data } = await axios.get(Api.getCartList).then(res => res);
-    this.setState({
-      data: data,
-      checkedNum: 0,
-      allPrice: 0,
-      cartNmu: 0,
-    })
+    let { code,data } = await axios.get(Api.getCartList).then(res => res);
+    if(code === 200) {
+      this.setState({
+        data: data,
+        checkedNum: 0,
+        allPrice: 0,
+        cartNmu: 0,
+      })
+    }
   }
   //全选
   allChange = (e) => {
