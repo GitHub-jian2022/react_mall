@@ -1,0 +1,32 @@
+.Search {
+  background-color: #fff;
+  height: 100vh;
+  .recent_search {
+
+    .title {
+      color: #f00;
+    }
+    .del {
+      font-size: 1.25rem;
+      color: #f00;
+    }
+
+    .history_list {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      .history_list_item {
+        margin-bottom: 0.625rem;
+        border-radius: 0.3125rem;
+        width: 30%;
+        margin: 0.3125rem;
+        line-height: 1.875rem;
+        text-align: center;
+        background-color: #eee;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+}

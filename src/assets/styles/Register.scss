@@ -8,27 +8,27 @@
         background-position: 0 0;
       }
       100% {
-        background-position: -200px 0;
+        background-position: -12.5rem 0;
       }
     }
     span{
       position: fixed;
-      top: 15px;
-      left: 15px;
+      top: 0.9375rem;
+      left: 0.9375rem;
       color: #fff;
     }
   }
   
   .login{
     height: 60vh;
-    padding: 20px 50px;
+    padding: 1.25rem 3.125rem;
     .registered{
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
     .userName{
-      margin: 15px 0;
+      margin: 0.9375rem 0;
     }
     .password{
   
@@ -37,11 +37,11 @@
       display: flex;
       justify-content: flex-end;
       color: #005980;
-      margin-top: 20px;
+      margin-top: 1.25rem;
     }
     .login_btn{
-      height: 40px;
-      margin-top: 20px;
+      height: 2.5rem;
+      margin-top: 1.25rem;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -49,7 +49,7 @@
       color: #fff;
     }
     .login_forget{
-      margin-top: 20px;
+      margin-top: 1.25rem;
       display: flex;
       justify-content: center;
       align-items: center;

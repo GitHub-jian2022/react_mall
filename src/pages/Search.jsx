@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { AntdSearchBar } from '../components/index'
 import { connect } from "react-redux";
 import { searchByKeyWord } from '../store/action/searchAction'
+import '../assets/styles/Search.scss'
 
 class Search extends Component {
   state = {
@@ -41,23 +42,19 @@ class Search extends Component {
   render() {
     const { history_list } = this.state
     return (
-      <div style={{ backgroundColor: '#fff' }}>
+      <div className='Search'>
         <AntdSearchBar onSubmit={this.onSubmit} />
         {/* 最近搜索部分 */}
-        <div style={{ paddingLeft: 10, paddingRight: 10 }}>
+        <div className='recent_search' style={{ paddingLeft: 10, paddingRight: 10 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <h3 style={{ color: '#f00' }}>最近搜索</h3>
-            <span className="iconfont" style={{ fontSize: 20, color: '#f00' }}
-              onClick={this.delHistory}
+            <h3 className='title' style={{ color: '#f00' }}>最近搜索</h3>
+            <span className="iconfont del" onClick={this.delHistory}
             >&#xe604;</span>
           </div>
-          <div className='clearfix'>
+          <div className='history_list'>
             {history_list.map((item, index) => (
               <div
-                style={{
-                  float: 'left', padding: 10, background: '#ddd',
-                  borderRadius: 5, marginRight: 10, marginBottom: 10
-                }}
+                className='history_list_item'
                 key={index}
                 onClick={() => {
                   this.props.searchByKeyWord(item)

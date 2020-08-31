@@ -1,37 +1,34 @@
-import React from 'react'
-
+import React, { Suspense } from 'react'
+import './App.css'
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom"
-
-import Login from './pages/Login'
-import Register from './pages/Register'
-import Home from './pages/Home'
-import Search from './pages/Search'
-import Cate from './pages/Cate'
-import ListPage from './pages/ListPage'
-import Cart from './pages/Cart'
-import GoodsDetail from './pages/GoodsDetail'
-
-import My from './pages/My/index'
-
-import { Layout } from './components/index'
-
+import { PrivateRoute } from './router/PrivateRoute'
+import routes from './router'
+import NotFound from './pages/NotFound'
 
 function App() {
   return (
     <Router>
-      
       <Switch>
-        <Route path="/login" exact component={Login}></Route>
-        <Route path="/register" exact component={Register}></Route>
-        <Route path="/" exact render={(props) => <Layout><Home></Home></Layout>} />
-        <Route exact path="/index" render={()=><Redirect to="/"/>}></Route>
-        <Route path="/cate" render={(props) => <Layout><Cate></Cate></Layout>} />
-        <Route path="/cart" render={(props) => <Layout><Cart></Cart></Layout>} />
-        <Route path="/search" component={Search} />
-        <Route path="/listpage/:keyword" component={ListPage} />
-        <Route path="/goodsDetail/:id" component={GoodsDetail} />
-        
-        <Route path="/my" render={(props) =><My></My>} />
+        {/* 请求根路径时重定向到 /index 主页 */}
+        <Redirect exact from='/' to='/index' />
+          {
+            routes.map((item,index) => {
+              const { component: Component, ...rest } = item
+              return <Route
+              {...rest}
+              render={props =>
+                <Suspense fallback={<div className='loading'>Loading...</div>}>
+                  {
+                    !item.auth ? <Component {...props} />
+                    : <PrivateRoute  component={Component} />
+                  }
+                </Suspense>
+              }
+              key={index} />
+            })
+          }
+          {/* 路径不匹配显示404页面 */}
+          <Route component={NotFound} />
       </Switch>
     </Router>
   );

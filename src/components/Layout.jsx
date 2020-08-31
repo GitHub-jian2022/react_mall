@@ -25,12 +25,12 @@ class Index extends Component {
                         }
                         selectedIcon={<i className="iconfont">&#xe601;</i>
                         }
-                        selected={this.props.match.url === '/'}
+                        selected={this.props.match.url === '/index'}
                         onPress={() => {
-                            this.props.history.push("/");
+                            this.props.history.push("/index");
                         }}
                     >
-                        {this.props.match.url === '/' && this.props.children}
+                        {this.props.match.url === '/index' && this.props.children}
                     </TabBar.Item>
                     <TabBar.Item
                         icon={<i className="iconfont">&#xe612;</i>

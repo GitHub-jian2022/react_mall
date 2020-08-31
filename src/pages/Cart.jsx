@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter } from "react-router-dom"
 import { Checkbox, NavBar, Button } from 'antd-mobile'
 
-import { CartList } from '../components/index'
+import { Layout,CartList } from '../components/index'
 import '../assets/styles/Cart.scss'
 import classnames from 'classnames'
 import { Api,axios } from '../api/api'
@@ -152,85 +152,89 @@ class Cart extends Component {
     const { data, deleteAll } = this.state
     if (this.state.token) {
       return (
-        <div className="cart-page" style={{ overflow: 'hidden' }}>
-          <TextHeader>
-            <span className="edit" onClick={(e) => {
-              e.preventDefault();
-              this.setState({ deleteAll: !deleteAll })
-            }}>
+        <Layout>
+          <div className="cart-page" style={{ overflow: 'hidden' }}>
+            <TextHeader>
+              <span className="edit" onClick={(e) => {
+                e.preventDefault();
+                this.setState({ deleteAll: !deleteAll })
+              }}>
+                {
+                  deleteAll ? '返回' : '编辑'
+                }
+              </span>
+            </TextHeader>
+            <div className="cart-body">
               {
-                deleteAll ? '返回' : '编辑'
+                <CartList
+                  changeStock={this.changeStock}
+                  checkChange={this.checkChange}
+                  data={data}
+                  deleteById={(id) => this.deleteById(id)}>
+                </CartList>
               }
-            </span>
-          </TextHeader>
-          <div className="cart-body">
+            </div>
             {
-              <CartList
-                changeStock={this.changeStock}
-                checkChange={this.checkChange}
-                data={data}
-                deleteById={(id) => this.deleteById(id)}>
-              </CartList>
+              deleteAll ?
+                <div className="cart-footer">
+                  <div>
+                    <Checkbox onChange={(e) => {
+                      this.allChange(e)
+                    }} />
+                    <div>全选</div>
+                  </div>
+                  <div className={classnames({
+                    'active': this.state.cartNmu > 0,
+                    'cart-footer-right': true
+                  })} onClick={() => {
+                    if (this.state.cartNmu > 0) {
+                      this.delete()
+                    }
+                  }}>
+                    删除<span>({this.state.cartNmu})</span>
+                  </div>
+                </div>
+                :
+                <div className="cart-footer">
+                  <div>
+                    <Checkbox onChange={(e) => {
+                      this.allChange(e)
+                    }} />
+                    <div>全选</div>
+                  </div>
+                  <div className="all-pirce">
+                    <p>
+                      <span>总计：</span>
+                      <span>￥{this.state.allPrice}</span>
+                    </p>
+                  </div>
+                  <div className={classnames({
+                    'active': this.state.checkedNum > 0,
+                    'cart-footer-right': true
+                  })} onClick={() => {
+                    this.state.checkedNum > 0 && this.buy()
+                  }}>
+                    去结算<span>({this.state.checkedNum}件)</span>
+                  </div>
+                </div>
             }
-          </div>
-          {
-            deleteAll ?
-              <div className="cart-footer">
-                <div>
-                  <Checkbox onChange={(e) => {
-                    this.allChange(e)
-                  }} />
-                  <div>全选</div>
-                </div>
-                <div className={classnames({
-                  'active': this.state.cartNmu > 0,
-                  'cart-footer-right': true
-                })} onClick={() => {
-                  if (this.state.cartNmu > 0) {
-                    this.delete()
-                  }
-                }}>
-                  删除<span>({this.state.cartNmu})</span>
-                </div>
-              </div>
-              :
-              <div className="cart-footer">
-                <div>
-                  <Checkbox onChange={(e) => {
-                    this.allChange(e)
-                  }} />
-                  <div>全选</div>
-                </div>
-                <div className="all-pirce">
-                  <p>
-                    <span>总计：</span>
-                    <span>￥{this.state.allPrice}</span>
-                  </p>
-                </div>
-                <div className={classnames({
-                  'active': this.state.checkedNum > 0,
-                  'cart-footer-right': true
-                })} onClick={() => {
-                  this.state.checkedNum > 0 && this.buy()
-                }}>
-                  去结算<span>({this.state.checkedNum}件)</span>
-                </div>
-              </div>
-          }
 
-        </div>
+          </div>
+        </Layout>
       )
     } else {
       return (
-        <div>
-          <NavBar
-            mode="light"
-            onLeftClick={() => console.log('onLeftClick')}
-          >购物车</NavBar>
-         <div style={{ padding: 50 }}>
-          <Button type="warning" onClick={() => this.props.history.push('/login')}>请登录</Button>
-         </div>
-        </div>
+        <Layout>
+          <div>
+            <NavBar
+              mode="light"
+              onLeftClick={() => console.log('onLeftClick')}
+            >购物车</NavBar>
+          <div style={{ padding: 50 }}>
+            <Button type="warning" onClick={() => this.props.history.push('/login')}>请登录</Button>
+          </div>
+          </div>
+        </Layout>
       )
 
     }

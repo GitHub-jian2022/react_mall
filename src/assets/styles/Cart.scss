@@ -7,12 +7,12 @@
         display: flex;
         align-items:center;
         justify-content: center;
-        min-height: 60px;
+        min-height: 3.75rem;
         color:#555;
     }
     .edit{
-        padding-right:10px;
-        font-size:14px;
+        padding-right:0.625rem;
+        font-size:0.875rem;
     }
     .am-navbar-right{
         color: #3c3c33;
@@ -42,20 +42,20 @@
                   flex:1;
               }
               span{
-                  font-size:14px;
-                  margin-left:10px;
+                  font-size:0.875rem;
+                  margin-left:0.625rem;
               }
               .next{
-                  width:14px;
-                  height:14px;
+                  width:0.875rem;
+                  height:0.875rem;
                   display: inline-block;
-                  margin-left:10px;
+                  margin-left:0.625rem;
               }
               i{
                   font-style: inherit;
-                  font-size:14px;
+                  font-size:0.875rem;
                   display: block;
-                  padding:0 10px;
+                  padding:0 0.625rem;
               }
           }
           .cart-c-body{
@@ -72,10 +72,10 @@
               .cart-c-item{
                   overflow: hidden;
                   position: relative;
-                  padding:10px 10px 10px 0;
+                  padding:0.625rem 0.625rem 0.625rem 0;
                   box-sizing: border-box;
                   .cart-c-check{
-                      width:40px;
+                      width:2.5rem;
                       display: flex;
                       align-items: center;
                       justify-content: center;
@@ -87,33 +87,33 @@
               .cart-ci-left{
                     position: absolute;
                     top: 0;
-                    left: 40px;
+                    left: 2.5rem;
                     height: 100%;
                     overflow: hidden;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     img{
-                        height:85px;
-                        width:85px;
+                        height:5.3125rem;
+                        width:5.3125rem;
                         display: block;
                         border:1px solid #eee;
                     }
             }
             .cart-ci-right{
-                min-height:87px;
-                margin-left:135px;
-                margin-right:8px;
+                min-height:5.4375rem;
+                margin-left:8.4375rem;
+                margin-right:0.5rem;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
                
                 .r-title{
-                    font-size:15px;
+                    font-size:0.9375rem;
                     white-space:normal;
                     font-weight:bold;
                     overflow : hidden;
-                    max-height: 46px;
+                    max-height: 2.875rem;
                     span{
                         overflow : hidden;
                         text-overflow: ellipsis;
@@ -129,25 +129,25 @@
                     justify-content: space-between;
                     .r-price{
                         color:#ff5b05;
-                        font-size:14px;
-                        line-height:30px;
+                        font-size:0.875rem;
+                        line-height:1.875rem;
                         span{
-                            font-size:12px;
+                            font-size:0.75rem;
                         }
                     }
                     .span-stepper{
-                        width:100px;
+                        width:6.25rem;
                          .am-stepper-handler{
-                            line-height: 28px;
-                            font-size: 14px;
-                            width: 26px;
-                            height: 26px;
+                            line-height: 1.75rem;
+                            font-size: 0.875rem;
+                            width: 1.625rem;
+                            height: 1.625rem;
                             display:flex;
                             justify-content: center;
                             align-items: center;
                         }
                         .am-stepper-input{
-                            font-size:14px;
+                            font-size:0.875rem;
                         }
                     }
                 }
@@ -160,27 +160,27 @@
         justify-content: space-between;
         border-top:1px solid #eee;
         background-color:rgba(255,255,255,.7);
-        height:50px;
+        height:3.125rem;
         &>div:nth-child(1){
-            width:50px;
+            width:3.125rem;
             text-align: center;
-            height:50px;
-            padding-top: 5px;
+            height:3.125rem;
+            padding-top: 0.3125rem;
             div{
-                font-size:12px;
+                font-size:0.75rem;
                 color:#555;
             }
         }
         .all-pirce{
             flex:1;   
-            margin-right:10px;
+            margin-right:0.625rem;
             display: flex;
             align-items: center;
             p{
                 margin:0;
                 padding:0;
                 font-weight: 700;
-                font-size:16px;
+                font-size:1rem;
                 text-align: right;
                 width:100%;
                 span:nth-child(2){
@@ -189,15 +189,15 @@
             }
         }
         .cart-footer-right{
-            width: 110px;
-            line-height: 50px;
+            width: 6.875rem;
+            line-height: 3.125rem;
             text-align: center;
-            font-size: 16px;
+            font-size: 1rem;
             font-weight:bold;
             background-color: #d7d7d7;
             color:#888;
             span{
-                font-size: 10px;
+                font-size: 0.625rem;
                 font-weight:400;
             }
         }

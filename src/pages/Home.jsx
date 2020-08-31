@@ -1,7 +1,7 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { withRouter } from "react-router-dom"
 import { Toast } from 'antd-mobile'
-import { SearchInput, Banner, Nav, Adverts, GoodsListItem } from '../components/index'
+import { Layout,SearchInput, Banner, Nav, Adverts, GoodsListItem } from '../components/index'
 import '../assets/styles/Home.scss'
 import 'react-virtualized/styles.css';
 import { AutoSizer, List, CellMeasurer, CellMeasurerCache } from 'react-virtualized';
@@ -109,7 +109,7 @@ class Home extends Component {
   render() {
     const { banners, Navs, adverts, goodsList } = this.state
     return (
-      <Fragment>
+      <Layout>
 
         <div className='home'>
           <SearchInput />
@@ -143,7 +143,7 @@ class Home extends Component {
           {/* 渲染列表方法结束 */}
         </div>
 
-      </Fragment>
+      </Layout>
 
     )
   }

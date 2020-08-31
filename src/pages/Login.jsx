@@ -16,7 +16,7 @@ class Login extends Component {
       const { token } = store.getState().usersReducer
       // console.log('token',token)
       if(token) {
-        this.props.history.push('/')
+        this.props.history.push('/index')
       }
     })
     this.state = {

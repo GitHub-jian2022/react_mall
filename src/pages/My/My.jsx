@@ -1,7 +1,7 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { Badge, Icon, Toast } from 'antd-mobile';
-
+import { Layout } from '../../components/index'
 import '../../assets/styles/My.scss'
 
 class My extends Component {
@@ -113,7 +113,7 @@ class My extends Component {
   render() {
     const { messageCount, user } = this.state
     return (
-      <Fragment>
+      <Layout>
         <div className='top'>
           <div className='top_info'>
             <div className='top_l'>
@@ -170,7 +170,7 @@ class My extends Component {
           </div>
           {this.RenderTools()}
         </div>
-      </Fragment>
+      </Layout>
     )
   }
 }
