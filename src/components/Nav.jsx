@@ -10,7 +10,7 @@ export default class Nav extends Component {
       <div className='Nav'>
         {
           Navs.map((item, index) => (
-            <div key={index} className='Nav_item' onClick={() => this.props.onClickNav(item.title)}>
+            <div key={index} className='Nav_item' onClick={() => this.props.onClickNav(item)}>
               <div>
                 <img alt='' src={REACT_APP_STATIC_URL + item.url}></img>
               </div>

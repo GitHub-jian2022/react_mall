@@ -1,0 +1,40 @@
+.mypurse {
+
+  .container {
+    padding: 20px 0;
+    img {
+      width:120px;
+      display: block;
+      margin:0 auto;
+    }
+    .tip {
+      text-align: center;
+      margin: 15px 0;
+      font-size:18px;
+    }
+    .price {
+      text-align: center;
+      font-size:28px;
+      color:#ff5b05;
+      font-weight: bold;
+      span {
+        font-size:18px;
+      }
+    }
+    .btns {
+      padding: 20px;
+      div {
+        text-align: center;
+        font-size: 18px;
+        padding: 8px 0;
+        background-color: #fff;
+        &:nth-child(1){
+          margin-bottom: 10px;
+          background-color: #ff5b05;
+          color: #fff;
+        }
+      }
+      
+    }
+  }
+}

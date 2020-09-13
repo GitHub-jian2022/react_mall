@@ -1,62 +1,65 @@
 import React, { Component,Fragment } from 'react'
-import { InputItem } from 'antd-mobile';
+import { InputItem, Toast } from 'antd-mobile';
 import { withRouter } from 'react-router-dom'
-import axios from "../utils/request"
+import { connect } from "react-redux";
+import { login } from '../store/action/usersAction'
+import { axios, Api } from "../api/api"
 import "../assets/styles/Register.scss"
+import { encrypt } from '../utils/Tool'
 
-
- class Index extends Component {
+ class Register extends Component {
   state = {
-    type: 'password',
-    username: '',
+    phone: '',
     password: '',
   }
-  getUsername = (username) => {
-    this.setState({
-      username
-    })
-  }
-  getPassword = (password) => {
-    this.setState({
-      password
-    })
-  }
   register = async () => {
-    const { username, password } = this.state;
-    let res = await axios.post('/user/registered',{
-      body: {
-        username,
-        password
-      }
+    const { phone, password } = this.state;
+    if(phone.trim() == '' || phone.length < 11) {
+      Toast.fail('手机号格式不正确',1)
+      return
+    }
+    if(password.trim() == '') {
+      Toast.fail('密码不能为空',1)
+      return
+    }else if(password.length < 6) {
+      Toast.fail('密码长度应不小于6位数',1)
+      return
+    }
+    let res = await axios.post(Api.register,{
+      phone,
+      password: encrypt(password)
     })
-    console.log(res);
+    if(res.code == 401) {
+      Toast.fail(res.msg,1)
+    }else {
+      this.props.login({ phone, password: encrypt(password) })
+    }
   }
   render() {
     return (
       <Fragment>
         <div className='bg'>
-          <span onClick={()=>this.props.history.push('/login')}>X</span>
+          {/* <span onClick={()=>this.props.history.push('/login')}>X</span> */}
         </div>
         <div className='login'>
           <div className='registered'>
-            <h3>注册</h3>
-            <span style={{color: '#005980'}} onClick={()=>{
-              this.props.history.push('/register')
-            }}></span>
+            <h3 onClick={()=>{
+              this.props.history.push('/login')
+            }}>登录</h3>
           </div>
           <div className='userName'>
             <InputItem
-              placeholder="账号"
+              placeholder="手机号"
               clear
-              onChange={this.getUsername}
+              onChange={phone => this.setState({ phone })}
             ></InputItem>
           </div>
           <div className='password'>
             <InputItem
-              type={this.state.type}
+              type='password'
               placeholder="请输入密码"
               clear
-              onChange={this.getPassword}
+              onChange={password => this.setState({ password })}
             ></InputItem>
           </div>
           <div className='login_btn' onClick={this.register}>
@@ -67,4 +70,11 @@ import "../assets/styles/Register.scss"
     )
   }
 }
-export  default withRouter(Index)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    login: (value) => {
+      dispatch(login(value))
+    }
+  }
+}
+export default withRouter(connect(null, mapDispatchToProps)(Register))

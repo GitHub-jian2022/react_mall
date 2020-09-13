@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { AntdSearchBar, GoodsListImg, ScrollToTop } from '../components/index'
-
 import { connect } from "react-redux";
 import { searchByKeyWord } from '../store/action/searchAction'
 import { getGoodsList } from '../store/action/goodsAction'
+import '../assets/styles/ListPage.scss'
 
 class ListPage extends Component {
   state = {
@@ -30,7 +30,7 @@ class ListPage extends Component {
   render() {
     const goodsList = this.props.goods
     return (
-      <div id='searchpage'>
+      <div id='ListPage' className='ListPage'>
         <div>
           <AntdSearchBar onSubmit={this.onSubmit} />
         </div>

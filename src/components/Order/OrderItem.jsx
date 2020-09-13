@@ -13,8 +13,8 @@ export default class OrderItem extends Component {
       <div className='order_item'>
         {/* 店铺名称 */}
         <div className='storeName'>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <img src={item.storeLogo} alt='暂无logo' style={{ width: 20, height: 20, marginRight: 10 }}></img>
+          <div>
+            <img src={item.storeLogo} alt='暂无logo'></img>
             <span>{item.storeName}</span>
             <Icon type='right' color='gray'></Icon>
           </div>
@@ -32,11 +32,10 @@ export default class OrderItem extends Component {
                   <div className='name'>{jtem.name}</div>
                   <div className='price'>
                     <div>¥ {jtem.price}</div>
-                    <div style={{ color: '#ccc' }}>x{jtem.quantity}</div>
+                    <div className='count'>x{jtem.quantity}</div>
                   </div>
                 </div>
-                <div className="tag-container" style={{ paddingTop: 9
-                }}>
+                <div className="tag-container">
                   <Tag small>{jtem.sku}</Tag>
                 </div>
               </div>

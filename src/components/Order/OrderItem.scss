@@ -2,6 +2,20 @@
   padding: 10px;
   background-color: #fff;
   margin-bottom: 10px;
+  .storeName {
+    >div {
+      display: flex;
+      align-items: center;
+      img {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+      }
+      span {
+        font-size: 16px;
+      }
+    }
+  }
   .order_info{
     padding: 10px 0;
     .order_info_item{
@@ -16,17 +30,28 @@
         .item_r_top{
           display: flex;
           justify-content: space-between;
+          font-size: 14px;
           .name{
             flex: 1;
             display: -webkit-box;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 2;
             overflow: hidden;
+            font-size: 14px;
           }
           .price{
             width: 50px;
             text-align: right;
+            color: #f00;
+            font-size: 14px;
+            .count {
+              font-size: 14px;
+              color: #999;
+            }
           }
+        }
+        .tag-container {
+          padding-top: 10px;
         }
       }
     }

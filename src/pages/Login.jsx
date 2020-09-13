@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { InputItem } from 'antd-mobile';
+import { InputItem, Toast } from 'antd-mobile';
 import { withRouter } from 'react-router-dom'
 import "../assets/styles/Login.scss"
 
@@ -20,13 +20,24 @@ class Login extends Component {
       }
     })
     this.state = {
-      phone: '10086',
+      phone: '10086100108',
       password: '123456'
     }
   }
 
   login = async () => {
     const { phone, password } = this.state;
+    if(phone.trim() == '' || phone.length < 11) {
+      Toast.fail('手机号格式不正确',1)
+      return
+    }
+    if(password.trim() == '') {
+      Toast.fail('密码不能为空',1)
+      return
+    }else if(password.length < 6) {
+      Toast.fail('密码长度应不小于6位数',1)
+      return
+    }
     this.props.login({ phone, password: encrypt(password) })
   }
 
@@ -34,20 +45,20 @@ class Login extends Component {
     return (
       <div style={{ position: 'relative', height: '100vh' }}>
         <div className='bg'>
-          <span onClick={() => this.props.history.go(-1)}>X</span>
+          {/* <span onClick={() => this.props.history.go(-1)}>X</span> */}
         </div>
         <div className='login'>
           <div className='registered'>
             <h3>登录</h3>
-            {/* <span style={{color: '#005980'}} onClick={()=>{
+            <span onClick={()=>{
               this.props.history.push('/register')
-            }}>点此注册</span> */}
+            }}>点此注册</span>
           </div>
 
           <div className='phone'>
             <InputItem
               value={this.state.phone}
-              placeholder="账号"
+              placeholder="手机号"
               clear
               onChange={phone => this.setState({ phone })}
             ></InputItem>

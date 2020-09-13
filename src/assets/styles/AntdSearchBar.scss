@@ -1,15 +1,15 @@
 .search-head {
-    height:2.75rem !important;
+    height:44px !important;
     display: flex;
     background-color: #fff;
-    border-bottom: 1px solid #eee;
+    border-bottom: 0.0625rem solid #eee;
     .center{
         flex: 1;
         .am-search{
         background-color: #fff;
             .am-search-input{
                 background-color: #f7f7f7;
-                border-radius:2.75rem;
+                border-radius:44px;
             }
         }
     }

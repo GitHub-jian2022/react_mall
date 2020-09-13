@@ -82,8 +82,8 @@ export default class Detail extends Component {
     })
   }
 
-  addGoodOrCart = () => {
-    console.log('addGoodOrCart')
+  addGoodToCart = () => {
+    console.log('addGoodToCart')
   }
 
   render() {
@@ -192,9 +192,9 @@ export default class Detail extends Component {
               <span>收藏</span>
             </div>
           </div>
-          <button className="btn-orange" onClick={this.addGoodOrCart}>加入购物车</button>
+          <button className="btn-orange" onClick={this.addGoodToCart}>加入购物车</button>
           <button onClick={() => {
-            console.log('buy')
+             this.props.history.push('/createOrder/' + this.state.goodId)
           }}>购买</button>
         </div>
       </div>

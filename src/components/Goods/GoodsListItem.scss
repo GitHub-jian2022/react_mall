@@ -16,9 +16,15 @@
         display: flex;
         justify-content: space-between;
         flex-direction: column;
+        padding: 15px 0;
         .title {
             color: #868584;
             line-height: 20px;
+            font-size: 14px;
+        }
+        .price {
+            color: #f00;
+            font-size: 14px;
         }
     }
 }

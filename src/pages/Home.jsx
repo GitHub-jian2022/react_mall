@@ -118,10 +118,11 @@ class Home extends Component {
 
           <Nav
           Navs={Navs}
-          onClickNav={(keyword) => {
-            this.props.history.push({
-              pathname: '/listpage/' + keyword
-            })
+          onClickNav={(item) => {
+            // this.props.history.push({
+            //   pathname: '/listpage/' + keyword
+            // })
+            console.log(item.title)
           }} />
 
           <Adverts imgs={adverts} />

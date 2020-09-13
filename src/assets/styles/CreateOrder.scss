@@ -1,0 +1,107 @@
+.create-order-page {
+
+  .address {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    .addr-icon {
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+    }
+    .info {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .info-l {
+        flex: 1;
+        font-size: 16px;
+        .contact {
+          .username {
+            margin-right: 5px;
+          }
+        }
+        .addr {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+        }
+      }
+      .info-r {
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+
+  .order {
+    padding: 10px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    .title {
+      font-size: 16px;
+      color: #999;
+      margin-bottom: 10px;
+    }
+    .order-item {
+      padding: 10px;
+      background-color: #eee;
+      display: flex;
+      align-items: center;
+      img {
+        width: 64px;
+        height: 64px;
+        margin-right: 10px;
+      }
+      .order-info-r {
+        flex: 1;
+        display: flex;
+        .left {
+          .title {
+            font-size: 14px;
+            color: #000;
+          }
+          .desc {
+            font-size: 12px;
+            color: #999;
+          }
+        }
+        .right {
+          margin-left: 10px;
+          font-size: 16px;
+          .price {
+            color: #f00;
+          }
+        }
+      }
+    }
+  }
+  
+  .calculate {
+    padding: 10px;
+    background-color: #fff;
+    .amount,.freight {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 16px;
+      .price {
+        color: #f00;
+      }
+    }
+    .total-price {
+      margin: 15px 0;
+      display: flex;
+      justify-content: flex-end;
+      font-size: 16px;
+      span {
+        color: #f00;
+      }
+    }
+  }
+
+}

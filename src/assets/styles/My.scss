@@ -1,31 +1,32 @@
 .top {
     background: linear-gradient(90deg, #eb3c3c, #ff7459);;
-    padding: 0.625rem 0;
+    padding: 10px 0;
   .top_info {
-    padding: 1.25rem 0.9375rem;
+    padding: 20px 15px;
     display: flex;
     justify-content: space-between;
     .top_l {
         display: flex;
       img {
-        width: 3.75rem;
-        height: 3.75rem;
-        border-radius: 2.25rem;
+        width: 60px;
+        height: 60px;
+        border-radius: 36px;
       }
 
       .userInfo {
-          margin-left: 0.625rem;
+          margin-left: 10px;
           color: #fff;
         .username {
-            margin-bottom: 0.625rem;
-            font-size: 1.125rem;
+            margin-bottom: 10px;
+            font-size: 16px;
             font-weight: bold;
         }
 
         .userNav {
             display: flex;
           div {
-
+            margin-right: 15px;
+            font-size: 16px;
           }
         }
       }
@@ -33,16 +34,25 @@
 
     .top-r {
         .am-badge {
-            margin-bottom: 0.625rem;
+            margin-bottom: 10px;
+        }
+        .iconfont {
+          font-size: 20px;
+          color: #fff;
+          font-weight: bold;
+        }
+        .iconfont.set {
+          margin: 0 15px;
         }
     }
   }
 
   .top_nav {
       display: flex;
-      padding-bottom: 0.625rem;
+      padding: 10px 0;
     .top_nav-item {
-        height: 2.5rem;
+        height: 40px;
+        font-size: 16px;
         color: #fff;
         flex: 1;
         display: flex;
@@ -54,20 +64,38 @@
 }
 
 .MyOrder{
-    padding: 0.625rem;
+  padding: 10px;
+  .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h3 {
+      font-size: 16px;
+    }
+    div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      span {
+        font-size: 14px;
+        color: #999;
+      }
+    }
+  }
 }
 .tools {
     display: flex;
     flex-wrap: wrap;
     background: #fff;
-    border-radius: 0.625rem;
-    padding: 0.9375rem;
+    border-radius: 10px;
+    padding: 15px;
     .tools_item{
-        height: 3.125rem;
-        width: 20%;
-        display: flex;
-        flex-direction: column;
-         justify-content: space-between;
-         align-items: center
+      height: 50px;
+      width: 20%;
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
     }
 }

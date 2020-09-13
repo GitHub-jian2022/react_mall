@@ -2,6 +2,7 @@ import axios from '../utils/request'
 
 const Api = {
     login: '/user/login',
+    register: '/user/register',
     getUserInfo: '/user/getUserInfo',
 
     getBanners: '/home/getBanners',

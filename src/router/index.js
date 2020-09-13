@@ -35,13 +35,14 @@ export default [
   {
     path: '/listpage/:keyword',
     component: React.lazy( () => import('../pages/ListPage')),
-
   },
   {
     path: '/goodsDetail/:id',
     component: React.lazy( () => import('../pages/GoodsDetail')),
-
   },
-  
+  {
+    path: '/createOrder/:id',
+    component: React.lazy( () => import('../pages/CreateOrder')),
+  },
   ...MyRoutes,
 ]

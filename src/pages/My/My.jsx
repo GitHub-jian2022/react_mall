@@ -3,6 +3,8 @@ import { withRouter } from 'react-router-dom'
 import { Badge, Icon, Toast } from 'antd-mobile';
 import { Layout } from '../../components/index'
 import '../../assets/styles/My.scss'
+// 默认头像
+import defalutAvatar from '../../assets/images/defalutAvatar.jpg'
 
 class My extends Component {
   state = {
@@ -12,13 +14,13 @@ class My extends Component {
         title: '收藏', num: 4, path: '/my/collection'
       },
       {
-        title: '关注', num: 3
+        title: '关注', num: 3, path: '/my/follow'
       },
       {
-        title: '足迹', num: 1
+        title: '足迹', num: 3, path: '/my/browserecord'
       },
       {
-        title: '红包卡券', num: 2
+        title: '余额', num: 666, path: '/my/purse'
       },
     ],
     tools: [
@@ -66,14 +68,13 @@ class My extends Component {
         {this.state.navs.map((item, index) => (
           <div className='top_nav-item' key={index}
             onClick={() => {
-              if (item.path !== '/my/collection') {
-                Toast.info('此功能暂未开通', 1)
-                return
-              }
-              this.props.history.push(item.path)
+              this.props.history.push({
+                pathname: item.path,
+                query: { data : item }
+              })
             }}
           >
-            <span style={{ fontWeight: 'bold', fontSize: 18 }}>{item.num}</span>
+            <span>{item.num}</span>
             <span>{item.title}</span>
           </div>
         ))}
@@ -117,32 +118,30 @@ class My extends Component {
         <div className='top'>
           <div className='top_info'>
             <div className='top_l'>
-              <img src={user.avatar_url || "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=480783060,2515065005&fm=15&gp=0.jpg"} alt="" />
+              <img src={user.avatar_url || defalutAvatar} alt="" />
               <div className='userInfo'>
                 <div className='username'>{user.username || '请登录'}</div>
                 <div className='userNav'>
-                  <div style={{ marginRight: 15 }}>{user.gender || ''}</div>
-                  <div></div>
+                  <div>{user.gender || ''}</div>
                 </div>
               </div>
             </div>
             <div className='top-r'>
-              <i className="iconfont" style={{ color: '#fff', fontSize: 20, fontWeight: 'bold' }}
-                onClick={() => this.props.history.push('/search')}
+              <i className="iconfont" onClick={() => this.props.history.push('/search')}
               >&#xe611;</i>
-              <i className="iconfont" style={{ color: '#fff', fontSize: 20, fontWeight: 'bold', marginLeft: 15, marginRight: 15 }}
+              <i className="iconfont set" 
                 onClick={() => this.props.history.push('/my/setup')}
               >&#xe602;</i>
               {
                 messageCount > 0 ?
                   <Badge text={messageCount} overflowCount={99} >
-                    <i className="iconfont" style={{ color: '#fff', fontSize: 20, fontWeight: 'bold' }}
+                    <i className="iconfont" 
                       onClick={() => {
                         Toast.info('此功能暂未开通', 1)
                         console.log('message')
                       }}
                     >&#xfe63;</i>
-                  </Badge> : <i className="iconfont" style={{ color: '#fff', fontSize: 20, fontWeight: 'bold' }}
+                  </Badge> : <i className="iconfont"
                     onClick={() => {
                       Toast.info('此功能暂未开通', 1)
                       console.log('message')
@@ -155,17 +154,17 @@ class My extends Component {
           {this.renderNavs()}
         </div>
         <div className='MyOrder'>
-          <div className='title' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div className='title'>
             <h3>我的订单</h3>
-            <div style={{ display: 'flex', alignItems: 'center' }}
+            <div
               onClick={this.toolsItemClick.bind(this, {
                 pathname: '/my/order',
                 initialPage: 0,
                 text: '全部'
               })}
             >
-              <span style={{ color: '#888' }}>查看全部</span>
-              <Icon type='right' style={{ color: '#888' }} />
+              <span>查看全部</span>
+              <Icon type='right' size="14" color="#999" />
             </div>
           </div>
           {this.RenderTools()}

@@ -17,8 +17,8 @@ export default class GoodsListItem extends Component {
           <img alt='' src={item.goods_img}></img>
         </div>
         <div className='goods_list_item_content'>
-          <div className='content_wrap_2 title'>{item.goods_title}</div>
-          <div style={{ color: 'red' }}>¥{item.price}</div>
+          <div className='content_wrap_2 title title'>{item.goods_title}</div>
+          <div className='price'>¥{item.price}</div>
         </div>
       </div>
     )

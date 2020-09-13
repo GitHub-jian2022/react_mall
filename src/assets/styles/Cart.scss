@@ -7,12 +7,12 @@
         display: flex;
         align-items:center;
         justify-content: center;
-        min-height: 3.75rem;
+        min-height: 60px;
         color:#555;
     }
     .edit{
-        padding-right:0.625rem;
-        font-size:0.875rem;
+        padding-right:10px;
+        font-size:14px;
     }
     .am-navbar-right{
         color: #3c3c33;
@@ -26,7 +26,7 @@
       .cart-main{
           width:100%;
           >.am-list-item{
-            border-bottom: 1px solid #eee;
+            border-bottom: 0.0625rem solid #eee;
             .am-list-line::after{
                 background-color: transparent;
             }
@@ -42,20 +42,20 @@
                   flex:1;
               }
               span{
-                  font-size:0.875rem;
-                  margin-left:0.625rem;
+                  font-size:14px;
+                  margin-left:10px;
               }
               .next{
-                  width:0.875rem;
-                  height:0.875rem;
+                  width:14px;
+                  height:14px;
                   display: inline-block;
-                  margin-left:0.625rem;
+                  margin-left:10px;
               }
               i{
                   font-style: inherit;
-                  font-size:0.875rem;
+                  font-size:14px;
                   display: block;
-                  padding:0 0.625rem;
+                  padding:0 10px;
               }
           }
           .cart-c-body{
@@ -63,23 +63,23 @@
                   background-color: transparent;
               }
               .am-list-line{
-                padding-right: 0px;
+                padding-right: 0rem;
               }
-              border-bottom: 1px solid #eee;
+              border-bottom: 0.0625rem solid #eee;
               .am-list-content{
                   position: relative;
               }
               .cart-c-item{
                   overflow: hidden;
                   position: relative;
-                  padding:0.625rem 0.625rem 0.625rem 0;
+                  padding:10px 10px 10px 0;
                   box-sizing: border-box;
                   .cart-c-check{
-                      width:2.5rem;
+                      width:40px;
                       display: flex;
                       align-items: center;
                       justify-content: center;
-                      height:calc(100% - 20px);
+                      height:calc(100% - 1.25rem);
                       box-sizing: border-box;
                       position: absolute;
                   }
@@ -87,33 +87,33 @@
               .cart-ci-left{
                     position: absolute;
                     top: 0;
-                    left: 2.5rem;
+                    left: 40px;
                     height: 100%;
                     overflow: hidden;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     img{
-                        height:5.3125rem;
-                        width:5.3125rem;
+                        height:85px;
+                        width:85px;
                         display: block;
-                        border:1px solid #eee;
+                        border:0.0625rem solid #eee;
                     }
             }
             .cart-ci-right{
-                min-height:5.4375rem;
-                margin-left:8.4375rem;
-                margin-right:0.5rem;
+                min-height:87px;
+                margin-left:135px;
+                margin-right:8px;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
                
                 .r-title{
-                    font-size:0.9375rem;
+                    font-size:15px;
                     white-space:normal;
                     font-weight:bold;
                     overflow : hidden;
-                    max-height: 2.875rem;
+                    max-height: 46px;
                     span{
                         overflow : hidden;
                         text-overflow: ellipsis;
@@ -129,25 +129,25 @@
                     justify-content: space-between;
                     .r-price{
                         color:#ff5b05;
-                        font-size:0.875rem;
-                        line-height:1.875rem;
+                        font-size:14px;
+                        line-height:30px;
                         span{
-                            font-size:0.75rem;
+                            font-size:12px;
                         }
                     }
                     .span-stepper{
-                        width:6.25rem;
+                        width:100px;
                          .am-stepper-handler{
-                            line-height: 1.75rem;
-                            font-size: 0.875rem;
-                            width: 1.625rem;
-                            height: 1.625rem;
+                            line-height: 28px;
+                            font-size: 14px;
+                            width: 26px;
+                            height: 26px;
                             display:flex;
                             justify-content: center;
                             align-items: center;
                         }
                         .am-stepper-input{
-                            font-size:0.875rem;
+                            font-size:14px;
                         }
                     }
                 }
@@ -158,29 +158,29 @@
     .cart-footer{
         display: flex;
         justify-content: space-between;
-        border-top:1px solid #eee;
+        border-top:0.0625rem solid #eee;
         background-color:rgba(255,255,255,.7);
-        height:3.125rem;
+        height:50px;
         &>div:nth-child(1){
-            width:3.125rem;
+            width:50px;
             text-align: center;
-            height:3.125rem;
-            padding-top: 0.3125rem;
+            height:50px;
+            padding-top: 5px;
             div{
-                font-size:0.75rem;
+                font-size:12px;
                 color:#555;
             }
         }
         .all-pirce{
             flex:1;   
-            margin-right:0.625rem;
+            margin-right:10px;
             display: flex;
             align-items: center;
             p{
                 margin:0;
                 padding:0;
                 font-weight: 700;
-                font-size:1rem;
+                font-size:16px;
                 text-align: right;
                 width:100%;
                 span:nth-child(2){
@@ -189,15 +189,15 @@
             }
         }
         .cart-footer-right{
-            width: 6.875rem;
-            line-height: 3.125rem;
+            width: 110px;
+            line-height: 50px;
             text-align: center;
-            font-size: 1rem;
+            font-size: 16px;
             font-weight:bold;
             background-color: #d7d7d7;
             color:#888;
             span{
-                font-size: 0.625rem;
+                font-size: 10px;
                 font-weight:400;
             }
         }
