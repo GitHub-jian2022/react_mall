@@ -1,3 +1,6 @@
+预览地址：
+http://47.100.138.242:8090/#/login
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
