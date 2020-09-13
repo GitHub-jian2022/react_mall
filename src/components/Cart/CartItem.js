@@ -55,7 +55,6 @@ class CratItem extends Component{
                         <span className="span-stepper">
                             {/* 加减步进器 */}
                             <Stepper
-                                style={{ maxWidth: '100px',height:'30px' }}
                                 showNumber
                                 max={item.stockNum}
                                 min={1}
