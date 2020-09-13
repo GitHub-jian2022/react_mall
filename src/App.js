@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
 import './App.css'
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom"
+import { HashRouter as Router, Route, Switch, Redirect } from "react-router-dom"
 import { PrivateRoute } from './router/PrivateRoute'
 import routes from './router'
 import NotFound from './pages/NotFound'
