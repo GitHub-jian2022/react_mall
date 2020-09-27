@@ -2,11 +2,9 @@ import React, { Component } from 'react'
 import { Tabs } from 'antd-mobile';
 import { Layout,SearchInput } from '../components/index'
 import classnames from 'classnames'
+import { withRouter } from "react-router-dom"
 
-
-import { connect } from 'react-redux'
-import { getCate } from '../store/action/cateAction'
-
+import { Api,axios } from '../api/api'
 import '../assets/styles/Cate.scss'
 
 class Cate extends Component {
@@ -14,15 +12,23 @@ class Cate extends Component {
     super(props);
     this.state = {
       tabs: [
-      ]
+      ],
+      cates: []
     }
   }
   componentDidMount() {
-    this.props.getCate()
+    // this.props.getCate()
+    this.getCate()
 
   }
+  async getCate(){
+    let {data:cates} = await axios.get(Api.getCate)
+    this.setState({
+      cates
+    })
+  }
   render() {
-    let cates = this.props.cates ? this.props.cates.map(v => {
+    let cates = this.state.cates ? this.state.cates.map(v => {
       return {
         ...v,
         title: v.name.split('').length > 5 ? v.name.split('').slice(0, 4).join('') + '...' : v.name
@@ -108,17 +114,4 @@ class Cate extends Component {
   }
 }
 
-export default connect(
-  ({ cateReducer }) => {
-    return {
-      cates: cateReducer.cates
-    }
-  },
-  (dispatch) => {
-    return {
-      getCate: () => {
-        dispatch(getCate())
-      }
-    }
-  }
-)(Cate)
+export default withRouter(Cate)
