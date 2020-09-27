@@ -21,6 +21,7 @@ export default function Adverts(props) {
                 window.dispatchEvent(new Event('resize'));
                 setImgHeight('auto')
               }}
+              onClick={(e) => e.preventDefault()}
             />
           </a>
           ))

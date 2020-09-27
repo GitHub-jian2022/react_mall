@@ -107,8 +107,8 @@ export default class Detail extends Component {
           {/* <--商品图片 */}
           {
             data && <Banner banners={data.imgs_url}
-              onClickBanner={(i) => {
-                this.setState({ visible: true })
+              onClickBanner={(photoIndex) => {
+                this.setState({ visible: true,photoIndex })
               }}
             />
 

@@ -31,7 +31,7 @@ class Cate extends Component {
     return (
       <Layout>
         <div className='cate-page' style={{ background: '#fff' }}>
-          <div style={{}}>
+          <div>
             <SearchInput />
           </div>
 

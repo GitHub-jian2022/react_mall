@@ -45,4 +45,8 @@ export default [
     component: React.lazy( () => import('../pages/CreateOrder')),
   },
   ...MyRoutes,
+
+  {
+    component: React.lazy( () => import('../pages/NotFound')),
+  }
 ]

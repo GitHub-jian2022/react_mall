@@ -26,7 +26,10 @@ export default class Banner extends Component {
                     src={REACT_APP_STATIC_URL + item.src}
                     alt=""
                     style={{ width: '100%', verticalAlign: 'top' }}
-                    onClick={() => this.props.onClickBanner(i)}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      this.props.onClickBanner(i)
+                    }}
                     onLoad={() => {
                       // fire window resize event to change height
                       window.dispatchEvent(new Event('resize'));

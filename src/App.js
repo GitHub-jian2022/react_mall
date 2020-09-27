@@ -3,7 +3,7 @@ import './App.css'
 import { HashRouter as Router, Route, Switch, Redirect } from "react-router-dom"
 import { PrivateRoute } from './router/PrivateRoute'
 import routes from './router'
-import NotFound from './pages/NotFound'
+// import NotFound from './pages/NotFound'
 
 function App() {
   return (
@@ -28,7 +28,7 @@ function App() {
             })
           }
           {/* 路径不匹配显示404页面 */}
-          <Route component={NotFound} />
+          {/* <Route component={NotFound} /> */}
       </Switch>
     </Router>
   );

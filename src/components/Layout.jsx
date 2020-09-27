@@ -9,72 +9,51 @@ import { withRouter } from "react-router-dom"
     5. import { withRouter } from "react-router-dom" 添加路由信息
 
 */
-class Index extends Component {
-    render() {
-        return (
-            <div style={{ position: 'fixed', height: '100%', width: '100%', top: 0 }}>
-                <TabBar
-                    unselectedTintColor="#949494"
-                    tintColor="#ff5b05"
-                    barTintColor="white"
-                >
-                    <TabBar.Item
-                        title="首页"
-                        key="Home"
-                        icon={<i className="iconfont">&#xe61c;</i>
-                        }
-                        selectedIcon={<i className="iconfont">&#xe601;</i>
-                        }
-                        selected={this.props.match.url === '/index'}
-                        onPress={() => {
-                            this.props.history.push("/index");
-                        }}
-                    >
-                        {this.props.match.url === '/index' && this.props.children}
-                    </TabBar.Item>
-                    <TabBar.Item
-                        icon={<i className="iconfont">&#xe612;</i>
-                        }
-                        selectedIcon={<i className="iconfont">&#xe600;</i>}
-                        title="分类"
-                        key="cate"
-                        selected={this.props.match.url === '/cate'}
-                        onPress={() => {
-                            this.props.history.push("/cate");
-                        }}
-                    >
-                        {this.props.match.url === '/cate' && this.props.children}
-                    </TabBar.Item>
-                    <TabBar.Item
-                        icon={<i className="iconfont">&#xe748;
-                        </i>
-                        }
-                        selectedIcon={<i className="iconfont">&#xe678;</i>}
-                        title="购物车"
-                        key="cart"
-                        selected={this.props.match.url === '/cart'}
-                        onPress={() => {
-                            this.props.history.push("/cart");
-                        }}
-                    >
-                        {this.props.match.url === '/cart' && this.props.children}
-                    </TabBar.Item>
-                    <TabBar.Item
-                        icon={<i className="iconfont">&#xe613;</i>}
-                        selectedIcon={<i className="iconfont">&#xe66c;</i>}
-                        title="我的"
-                        key="profile"
-                        selected={this.props.match.url === '/my'}
-                        onPress={() => {
-                            this.props.history.push("/my");
-                        }}
-                    >
-                        {this.props.match.url === '/my' && this.props.children}
-                    </TabBar.Item>
-                </TabBar>
-            </div>
-        )
-    }
+class Layout extends Component {
+  state = {
+    data: [
+      {
+        title: '首页', key: 'Home', icon: <i className="iconfont">&#xe61c;</i>, url: '/index'
+      },
+      {
+        title: '分类', key: 'cate', icon: <i className="iconfont">&#xe600;</i>, url: '/cate'
+      },
+      {
+        title: '购物车', key: 'cart', icon: <i className="iconfont">&#xe678;</i>,url: '/cart'
+      },
+      {
+        title: '我的', key: 'profile', icon: <i className="iconfont">&#xe66c;</i>,url: '/my'
+      },
+    ]
+  }
+  render() {
+    return (
+      <div style={{ position: 'fixed', height: '100%', width: '100%', top: 0 }}>
+        <TabBar
+          unselectedTintColor="#949494"
+          tintColor="#ff5b05"
+          barTintColor="white"
+        >
+          {
+            this.state.data.map((item, index) =>
+              <TabBar.Item
+                icon={item.icon}
+                selectedIcon={item.icon}
+                title={item.title}
+                key={index}
+                selected={this.props.match.url === item.url}
+                onPress={() => {
+                  this.props.history.push(item.url);
+                }}
+              >
+                {this.props.match.url === item.url && this.props.children}
+              </TabBar.Item>
+            )
+          }
+        </TabBar>
+      </div>
+    )
+  }
 }
 
-export default withRouter(Index)
+export default withRouter(Layout)

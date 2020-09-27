@@ -22,6 +22,7 @@ export default class SetUp extends Component {
             { text: '确定', onPress: () => {
                 // 清除token
                 Cookie.removeItem('token')
+                localStorage.clear()
                 this.props.history.push('/login')
             } },
         ])

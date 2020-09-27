@@ -117,14 +117,19 @@ class My extends Component {
       <Layout>
         <div className='top'>
           <div className='top_info'>
-            <div className='top_l'>
+            <div className='top_l' onClick={() => this.props.history.push('/login')}>
               <img src={user.avatar_url || defalutAvatar} alt="" />
-              <div className='userInfo'>
-                <div className='username'>{user.username || '请登录'}</div>
-                <div className='userNav'>
-                  <div>{user.gender || ''}</div>
+              {
+                user.username ? <div className='userInfo'>
+                  <div className='username'>{user.username || '请登录'}</div>
+                  <div className='userNav'>
+                    <div>{user.gender || ''}</div>
+                  </div>
+                </div> : <div className='userInfo'>
+                  <div className="username">请登录</div>
                 </div>
-              </div>
+              }
+              
             </div>
             <div className='top-r'>
               <i className="iconfont" onClick={() => this.props.history.push('/search')}

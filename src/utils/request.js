@@ -11,7 +11,7 @@ const axios = Axios.create({
 //2.添加请求和返回的拦截
 //3.加遮罩
 axios.interceptors.request.use(function (config) {
-    Toast.loading('Loading...', 0, null,true);
+    // Toast.loading('Loading...', 0, null,true);
     config.timeout = 20000;
     const token = Cookie.getItem('token') || ''
     if(token) {
@@ -21,13 +21,13 @@ axios.interceptors.request.use(function (config) {
   }, function (error) {
     console.log('error: ', error);
     // Do something with request error
-    Toast.hide();
+    // Toast.hide();
     return Promise.reject(error);
   });
 
 // Add a response interceptor
 axios.interceptors.response.use(function (response) {
-    Toast.hide();
+    // Toast.hide();
     console.log('response.data: ', response.data);
     if(response.data.code === 403){
       Toast.fail(response.data.msg, 2, null, true)
